@@ -38,7 +38,7 @@ const Nav = () => {
             <Link href="/create" className=" black_btn">
               Create Post
             </Link>
-            <button type="button" onClick={signOut}  className=" outline_btn">
+            <button type="button" onClick={signOut} className=" outline_btn">
               Sign Out
             </button>
             <Link href={"/profile"}>
@@ -64,21 +64,21 @@ const Nav = () => {
               ))}
           </>
         )}
+      </div>
+
 
         {/* { mobile Navigation} */}
         <div className="sm:hidden flex relative">
           {isUserLoggedIn ? (
-            <div className=" flex">
+            <div className="flex">
               <Image
                 src="/images/logo.svg"
                 alt="Profile"
                 width={37}
                 height={37}
                 className=" rounded-full"
-                onClick={() =>
-                  setToggleDropdown((pre) => setToggleDropdown(!pre))
-                }
-              ></Image>
+                onClick={() => setToggleDropdown((pre) => !pre)}
+              />
 
               {/* {toggleDropdown && (
                 <div className=" dropdown">
@@ -107,7 +107,6 @@ const Nav = () => {
             </>
           )}
         </div>
-      </div>
     </nav>
   );
 };
