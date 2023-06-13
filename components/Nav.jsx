@@ -79,7 +79,7 @@ const Nav = () => {
               alt="profile"
               className="rounded-full"
               onClick={() => {
-                setToggleDropdown((pre) => setToggleDropdown(!pre));
+                setToggleDropdown((prev) => !prev);
               }}
             />
 
@@ -89,16 +89,26 @@ const Nav = () => {
                   href="/profile"
                   className=" dropdown_link"
                   onClick={() => setToggleDropdown(false)}
-                >My Profile</Link>
+                >
+                  My Profile
+                </Link>
                 <Link
                   href="/create-prompt"
                   className=" dropdown_link"
                   onClick={() => setToggleDropdown(false)}
-                >Create  Prompt</Link>
-                <button type ="button" onClick={()=> {
-                  setToggleDropdown(false)
-                  signOut(); 
-                }} className=" mt-5 w-full black_btn">Sign Out </button>
+                >
+                  Create Prompt
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                  className=" mt-5 w-full black_btn"
+                >
+                  Sign Out{" "}
+                </button>
               </div>
             )}
           </div>
