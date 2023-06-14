@@ -1,14 +1,28 @@
-import NextAuth from 'next-auth'
+import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
-import { signIn } from "next-auth/react";
 
+import { connectToDB } from "@utils/database";
+const handler = NextAuth({
+  providers: [
+    {
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRETE,
+    },
+  ],
+  callbacks: {
+    async session({ session }) {},
+    async signIn({ profile }) {
+        try {
+            await connectToDB()
 
-console.log({ clientId: process.env.GOOGLE_ID, clientSecret: process.env.GOOGLE_CLIENT_SECRET})
+            
+        }
+        catch (error) {
+            console.log(error)
+        }
 
-const handler = new NextAuth({
-  providers: [GoogleProvider({ clientId: process.env.GOOGLE_ID, clientSecret: process.env.GOOGLE_CLIENT_SECRET})],
-  async session({ session }) {},
-  async signIn({ profile }) {},
+    },
+  },
 });
 
 export { handler as GET, handler as POST };

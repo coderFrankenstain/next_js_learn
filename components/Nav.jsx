@@ -81,7 +81,7 @@ const Nav = () => {
               alt="profile"
               className="rounded-full"
               onClick={() => {
-                setToggleDropdown((pre) => !pre);
+                setToggleDropdown((prev) => !prev);
               }}
             />
 
