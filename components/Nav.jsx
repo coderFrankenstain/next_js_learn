@@ -32,6 +32,7 @@ const Nav = () => {
         <p className=" logo_text">Promptopia</p>
       </Link>
 
+    {/* {Desktop Navigation} */}
       <div className=" sm:flex hidden">
         {isUserLoggedIn ? (
           <div className="flex gap-3 md:gap-5">
@@ -80,7 +81,7 @@ const Nav = () => {
               alt="profile"
               className="rounded-full"
               onClick={() => {
-                setToggleDropdown((pre) => setToggleDropdown(!pre));
+                setToggleDropdown((pre) => !pre);
               }}
             />
 
